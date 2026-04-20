@@ -10,6 +10,6 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: { case_sensitive: false },
             length: { maximum: 105 }
-
+  has_secure_password
 end
 
