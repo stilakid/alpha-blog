@@ -11,6 +11,14 @@
   <tbody>
     <% @articles.each do |article| %>
     <tr>
+      <td colspan="5">
+        Artilcle by
+        <%= article.user.username %>
+      </td>
+
+    </tr>
+
+    <tr>
       <td><%= article.title %></td>
       <td><%= article.description %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
