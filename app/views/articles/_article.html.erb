@@ -10,8 +10,10 @@
   <% obj.each do |article| %>
     <tr>
       <td colspan="5">
-        Artilcle by
-        <%= article.user.username %>
+        <% if article.user %>
+          Article by
+          <%= link_to article.user.username, user_path(article.user) %>
+        <% end %>
       </td>
 
     </tr>
