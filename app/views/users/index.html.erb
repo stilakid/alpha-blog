@@ -21,7 +21,12 @@
     <tr>
       <td><%= pluralize(user.articles.count, "article") %></td>
       <td><%= link_to 'View profile', user %></td>
-      <td><%= link_to 'Edit profile', edit_user_path(user) %></td>
+
+      <td>
+        <% if logged_in? && user == current_user %>
+          <%= link_to 'Edit profile', edit_user_path(user) %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
   </tbody>
