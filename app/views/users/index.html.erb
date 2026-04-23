@@ -23,8 +23,13 @@
       <td><%= link_to 'View profile', user %></td>
 
       <td>
-        <% if logged_in? && user == current_user %>
-          <%= link_to 'Edit profile', edit_user_path(user) %>
+        <% if logged_in? %>
+          <% if user == current_user %>
+            <%= link_to 'Edit profile', edit_user_path(user) %>
+          <% end %>
+          <% if current_user.admin? %>
+            <%= link_to "Delete user", user_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to tdelete the user account and all associated articles?" } %>
+          <% end %>
         <% end %>
       </td>
     </tr>
