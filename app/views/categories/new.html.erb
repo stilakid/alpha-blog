@@ -1,0 +1,18 @@
+<h1>Create a new category</h1>
+
+<%= form_with(model: @category, local: true) do |f| %>
+
+  <p>
+    <%= f.label :name, "Category name" %><br/>
+    <%= f.text_field :name, placeholder: "Enter a name" %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <p>
+    <%= link_to '[ Cancel and return to articles listing ]', articles_path %>
+  </p>
+
+<% end %>
