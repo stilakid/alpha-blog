@@ -9,10 +9,15 @@
   <tbody>
   <% obj.each do |article| %>
     <tr>
-      <td colspan="5">
-        <% if article.user %>
-          Article by
-          <%= link_to article.user.username, user_path(article.user) %>
+      <td colspan="2">
+          <% if article.user %>
+            Article by
+            <%= link_to article.user.username, user_path(article.user) %>
+          <% end %>
+      </td>
+      <td colspan="3">
+        <% if article.categories.any? %>
+          <%= render article.categories %>
         <% end %>
       </td>
 
